@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  # 데이터 소스 (Data Source)
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 1234
+
+  # Resource and Thymeleaf Refresh
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+  thymeleaf:
+    cache: false
+
+  # JPA Properties
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    # generate-ddl: false
+    # hibernate.ddl-auto: none
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # use_sql_comments: true
+        highlight_sql: true
+
+  # resilience4j circuitbreaker
+#  resilience4j.circuitbreaker:
+#    configs:
+#      default:
+#        failureRateThreshold: 50
+#        slowCallRateThreshold: 100
+#        slowCallDurationThreshold: 60000
+#        permittedNumberOfCallsInHalfOpenState: 4
+#        maxWaitDurationInHalfOpenState: 1000
+#        slidingWindowType: COUNT_BASED
+#        slidingWindowSize: 10
+#        minimumNumberOfCalls: 10
+#        waitDurationInOpenState: 10000
+#    instances:
+#      circuitTest:
+#        baseConfig: default
