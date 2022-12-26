@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardApiController {
 
+    // 테스트 테스트
     private final BoardService boardService;
 
     @PostMapping("/boards")
@@ -35,6 +36,7 @@ public class BoardApiController {
         return boardService.delete(id);
     }
 
+    // 추가추가
     @GetMapping("/boards/{id}")
     public BoardResponseDto findById(@PathVariable final Long id) {
         return boardService.findById(id);
